@@ -15,7 +15,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item" v-for="(page, index) in pages" :key="index">
+          <li class="nav-item" v-for="(page, index) in publishedPages" :key="index">
             <navbar-link
               :page="page"
               :isActive="activePage === index"
@@ -36,10 +36,15 @@ import NavbarLink from './NavbarLink.vue';
 
 export default {
   components: { NavbarLink },
-  props: ['pages', 'activePage', 'navLinkClick'],
   created() {
     this.getThemeSetting();
   },
+  computed: {
+    publishedPages() {
+      return this.pages.filter((page) => page.published);
+    },
+  },
+  props: ['pages', 'activePage', 'navLinkClick'],
   data() {
     return {
       theme: 'light',
