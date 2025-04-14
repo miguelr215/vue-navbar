@@ -4,10 +4,10 @@
       <div class="mb-3">
         <label for="" class="form-label"> Page Title </label>
 
-        <!-- method 1 of getting input value -->
+        <!-- method 1 of getting input value:  input event function to set pageTitle to target value -->
         <!-- <input type="text" class="form-control" :value="pageTitle" @input="(e) => pageTitle = e.target.value" required> -->
-        <!-- method 2 of getting input value -->
 
+        <!-- method 2 of getting input value:  v-model is 2-way binding -->
         <input type="text" class="form-control" v-model="pageTitle" required />
       </div>
 
@@ -46,7 +46,7 @@
 
 <script>
 export default {
-  props: ['pageCreated'],
+  // props: ['pageCreated'],
   computed: {
     isFormInvalid() {
       return !this.pageTitle || !this.content || !this.linkText || !this.linkUrl;

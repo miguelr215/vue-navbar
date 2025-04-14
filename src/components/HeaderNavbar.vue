@@ -15,13 +15,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item" v-for="(page, index) in publishedPages" :key="index">
-            <navbar-link
-              :page="page"
-              :isActive="activePage === index"
-              @click.prevent="navLinkClick(index)"
-            ></navbar-link>
-          </li>
+          <navbar-link
+            class="nav-item"
+            v-for="(page, index) in publishedPages"
+            :key="index"
+            :index="index"
+            :page="page"
+            :isActive="activePage === index"
+          ></navbar-link>
         </ul>
       </div>
       <form class="d-flex">
@@ -44,7 +45,7 @@ export default {
       return this.pages.filter((page) => page.published);
     },
   },
-  props: ['pages', 'activePage', 'navLinkClick'],
+  props: ['pages', 'activePage'],
   data() {
     return {
       theme: 'light',
