@@ -1,19 +1,22 @@
 <template>
   <header-navbar :pages="pages" :active-page="activePage"></header-navbar>
-  <page-viewer v-if="pages.length > 0" :page="pages[activePage]"></page-viewer>
-  <create-page :page-created="pageCreated"></create-page>
+
+  <router-view></router-view>
+
+  <!-- <page-viewer v-if="pages.length > 0" :page="pages[activePage]"></page-viewer>
+  <create-page :page-created="pageCreated"></create-page> -->
 </template>
 
 <script>
-import PageViewer from './components/PageViewer.vue';
+// import PageViewer from './components/PageViewer.vue';
 import HeaderNavbar from './components/HeaderNavbar.vue';
-import CreatePage from './components/CreatePage.vue';
+// import CreatePage from './components/CreatePage.vue';
 
 export default {
   components: {
-    PageViewer,
+    // PageViewer,
     HeaderNavbar,
-    CreatePage,
+    // CreatePage,
   },
   created() {
     this.getPages();
